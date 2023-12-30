@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Tamanho de Fonte</title>
+    <style>
+        body {
+            font-size: 16px;
+            background: linear-gradient(90deg, rgba(233,148,223,1) 0%, rgba(174,232,238,1) 0%);
+        }
+        button{
+            border-radius: 100px ;
+            padding: 5px;
+            width: 50px;
+        }
+        button:hover{
+        background-color: brown;
+        color: white;
+        
+
+        }
+        button:active{
+            font-size: larger; 
+        }
+
+        img{
+            width: 25px;  
+            margin-top: 12px;
+            margin-left: 40px;
+        }
+
+        img:hover{
+border-radius: 50%;
+border: 3px solid black;
+}
+    </style>
+</head>
+<body>
+    <h1>Controle de Tamanho de Fonte clicado nos sinais</h1>
+    <p id="texto">Eu Sou Aline.</p>
+    <button onclick="aumentarFonte()">+</button>
+    <button onclick="diminuirFonte()">-</button>
+    <div>
+    
+        <a href="./index.html" > <img src="./img/seta.png" alt=""></a  >
+    </div>
+
+
+    <script>
+        function aumentarFonte() {
+            let elementoTexto = document.getElementById("texto");
+            let estiloAtual = window.getComputedStyle(elementoTexto, null).getPropertyValue('font-size');
+            let tamanhoAtual = parseFloat(estiloAtual);
+            let novoTamanho = tamanhoAtual + 2;
+
+            // Limitando o tamanho da fonte
+            if (novoTamanho <= 30) {
+                elementoTexto.style.fontSize = novoTamanho + "px";
+            }
+        }
+
+        function diminuirFonte() {
+            let elementoTexto = document.getElementById("texto");
+            let estiloAtual = window.getComputedStyle(elementoTexto, null).getPropertyValue('font-size');
+            let tamanhoAtual = parseFloat(estiloAtual);
+            let novoTamanho = tamanhoAtual - 2;
+
+            // Limitando o tamanho da fonte
+            if (novoTamanho >= 10) {
+                elementoTexto.style.fontSize = novoTamanho + "px";
+            }
+        }
+    </script>
+</body>
+</html>
